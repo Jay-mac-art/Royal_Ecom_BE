@@ -1,41 +1,40 @@
-E-commerce Store with Discount System
+# E-commerce Store with Discount System
 
-License: MIT
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 A full-stack e-commerce application with cart functionality and automated discount code generation system.
-Features
-Core Functionality
 
-    🛒 Add items to cart
-    💳 Checkout system with order validation
-    🎟️ Automated discount code generation (every nth order)
-    ✅ Discount code validation during checkout
-    📊 Admin dashboard with sales statistics
+## Features
 
-Admin Features
+### Core Functionality
+- 🛒 Add items to cart
+- 💳 Checkout system with order validation
+- 🎟️ Automated discount code generation (every nth order)
+- ✅ Discount code validation during checkout
+- 📊 Admin dashboard with sales statistics
 
-    📈 View sales statistics (total items, revenue, discounts)
-    🔢 Configure nth order threshold for discounts
-    🏷️ Generate new discount codes manually
-    📋 List all active/redeemed discount codes
+### Admin Features
+- 📈 View sales statistics (total items, revenue, discounts)
+- 🔢 Configure nth order threshold for discounts
+- 🏷️ Generate new discount codes manually
+- 📋 List all active/redeemed discount codes
 
-Technologies Used
-Backend
+## Technologies Used
 
-    Nest.js with Typeorm.js
-    TypeScript for type safety
-    Jest for unit testing
-    Postgres
+### Backend
+- **Nest.js** with **Typeorm.js**
+- **TypeScript** for type safety
+- **Jest** for unit testing
+- Postgres 
 
-Frontend
+### Frontend
+- **ReactVite** with **TypeScript**
+- **Tailwind CSS** for styling
+- **Axios** for API communication
+- **React Router** for navigation
 
-    ReactVite with TypeScript
-    Tailwind CSS for styling
-    Axios for API communication
-    React Router for navigation
-
-Project Structure FE
-
+## Project Structure FE 
+```
 └── 📁src
     └── 📁components
         └── Navbar.tsx
@@ -55,9 +54,9 @@ Project Structure FE
     └── index.css
     └── main.tsx
     └── vite-env.d.ts
-
-Project Structure BE
-
+```
+## Project Structure BE
+```
 └── 📁src
     └── 📁decorator
         └── auth.decorator.ts
@@ -96,23 +95,31 @@ Project Structure BE
     └── app.service.ts
     └── main.controller.spec.ts
     └── main.ts
+```
 
 Set Up Env File Run BE Server and Install npm dependecy
-Getting Started
-Prerequisites
 
-    Node.js v16+
-    npm v8+
-    Git
+## Getting Started
 
-Frontend Setup
-Navigate to backend directory
+### Prerequisites
+- Node.js v16+
+- npm v8+
+- Git
 
- Install dependencies
-  npm install
+### Frontend Setup
 
- Start development server
- npm run dev
+1. **Navigate to backend directory**
+   ```bash
+
+
+    Install dependencies
+     npm install
+
+    Start development server
+    npm run dev
+
+
+  ```bash
 
 ## Getting Started
 
@@ -123,11 +130,10 @@ Navigate to backend directory
 
 ### Backend Setup Add Pgsql connection profile and env varaibles
 
-  npm install
+    npm install
 
-  Start development server
-  npm run dev
+    Start development server
+    npm run dev
 
-  Run tests
-  npm test
-
+    Run tests
+    npm test
