@@ -80,17 +80,18 @@ export class CheckoutService {
 
   async checkCouponEligibility(userId: number) {
 
+    //User Check
     const user = await this.userRepository.findOne({ where: { id: userId } });
     if (!user) {
       throw new BadRequestException('User not found');
     }
-
+    //Past Order
     const pastOrdersCount = await this.orderRepository.findAndCount({ 
       where: { user: { id: userId }  } ,
       order: { id: 'DESC' },
     });
 
-    
+    //Check Already Exist Coupons 
     const alreadyHaveDiscountCoupon  = await this.discountCodeRepository.findOne({ 
       where: {  used : false },
       order: { id: 'DESC' },
@@ -107,21 +108,21 @@ export class CheckoutService {
       };
     }
     
-    
+    //Check Coupon Threshold
     const threshold : any = await this.configurationRepository.findOneBy({ id : 1});
    
     if ((pastOrdersCount?.[1] + 1) % Number(threshold?.value) === 0) {
 
       const couponCode = crypto.randomBytes(8).toString('hex').toUpperCase();
       
-
+      const discount_percentage  =  Number(process.env.DISCOUNT_PERCENTAGE) || 10;
       const validUntil = new Date();
       validUntil.setDate(validUntil.getDate() + 7);
 
-      
-      const newCoupon = this.discountCodeRepository.create({
+      //Generate Coupn 
+      const newCoupon  = this.discountCodeRepository.create({
         code: couponCode,
-        discount_percentage: 10, 
+        discount_percentage,
         valid_until: validUntil,
         user,
         generated_by_order : pastOrdersCount?.[0][0],
@@ -133,7 +134,7 @@ export class CheckoutService {
         applicable: true,
         coupon: {
           code: couponCode,
-          discountPercentage: 10
+          discountPercentage : discount_percentage
         }
       };
     }

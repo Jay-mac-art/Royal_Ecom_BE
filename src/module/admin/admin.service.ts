@@ -52,6 +52,7 @@ export class AdminService {
     return { code: discountCode.code };
   }
 
+  //set Configration what nth order coupon generation should be
   async setDiscountThreshold(dto: SetDiscountThresholdDto) {
     let config = await this.configRepository.findOne({ where: { key: 'discount_threshold' } });
     if (!config) {
@@ -66,6 +67,7 @@ export class AdminService {
     return { message: 'Discount threshold updated' };
   }
 
+  //Get Admin Statics
   async getSalesStats() {
     // Overall statistics
     const overallStats = {
