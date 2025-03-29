@@ -15,6 +15,6 @@ import { JwtService } from '@nestjs/jwt';
     TypeOrmModule.forFeature([DiscountCode, Configuration, Order, OrderItem, User]),
   ],
   controllers: [AdminController],
-  providers: [AdminService , JwtService],
+  providers: [AdminService , JwtService ],
 })
 export class AdminModule {}
